@@ -1,0 +1,31 @@
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">
+
+    <persistence-unit name="dblembrete" transaction-type="RESOURCE_LOCAL">
+        <!-- Provedor que vc tá utilizando -->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- Classes que representão os modelos do banco de dados -->
+        <class>br.gov.ma.seap.models.Lembrete</class>
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+
+        <!-- configurações de conexão com o banco de dados -->
+        <properties>
+            <!-- url de conexão JDBC -->
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/dblembrete"/>
+            <!-- usuário do banco de dados -->
+            <property name="javax.persistence.jdbc.user" value="postgres"/>
+            <!-- senha do banco de dados -->
+            <property name="javax.persistence.jdbc.password" value="123456"/>
+            <!-- driver do banco de dados -->
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+
+            <!-- exibe e formata o SQL que aparece no console -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>

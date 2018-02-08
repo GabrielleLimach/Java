@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head/>
+<h:body>
+
+    <h:form>
+        <p:messages/>
+        <p:panelGrid columns="3" columnClasses="ui-lg-1, ui-lg-l, ui-lg-3, ui-lg-3" layout="grid">
+
+            <p:outputLabel value="Titulo" for="titulo"/>
+            <p:inputTextarea value="#{cadastraLembreteBean.lembrete.titulo}" id="titulo"/>
+            <p:message for="titulo"/>
+
+            <p:outputLabel value="Local" for="local"/>
+            <p:inputText value="#{cadastraLembreteBean.lembrete.local}" id="local" required="true"
+                         requiredMessage="Informe o local"/>
+            <p:message for="local"/>
+
+
+            <p:outputLabel value="Data" for="data"/>
+            <p:inputText value="#{cadastraLembreteBean.lembrete.data.time}" id="data">
+                <f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss" timeZone="America/Fortaleza"/>
+            </p:inputText>
+            <p:message for="data"/>
+
+            <p:outputLabel value="Descrição" for="descricao"/>
+            <p:inputTextarea value="#{cadastraLembreteBean.lembrete.descricao}" id="descricao"/>
+            <p:message for="descricao"/>
+
+            <p:commandButton value="Salvar" action="#{cadastraLembreteBean.salvar}" update="@form"/>
+
+        </p:panelGrid>
+    </h:form>
+
+
+</h:body>
+
+</html>
